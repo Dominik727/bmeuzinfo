@@ -106,8 +106,7 @@ def hetnapja(honap, nap):
 
 ```
 Függvény hetnapja(honap:egesz, nap:egesz): szöveg
- napnev[]:= ("vasarnap", "hetfo", "kedd", "szerda", "csutortok",
- "pentek", "szombat")
+ napnev[]:= ("vasarnap", "hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat")
  napszam[]:= (0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335)
  napsorszam:= (napszam[honap-1]+nap) MOD 7
  hetnapja:= napnev[napsorszam]
