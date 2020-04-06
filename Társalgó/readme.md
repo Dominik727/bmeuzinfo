@@ -33,7 +33,6 @@ Célszerű egy feladatszám kiíró függvényt csinálni.
 Megoldás 
 </summary>
 
-`Egyszerűbb megoldás`
 ```python
 def feledatszam(i): ## célszerű f-nek hívni az időtakarékosság jegyében
     print('{0}. feladat:',i)
