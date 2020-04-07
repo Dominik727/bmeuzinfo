@@ -112,10 +112,10 @@ with open('athaladas.txt', 'w') as ath:
 
 4. Írja a képernyőre azon személyek azonosítóját, akik a vizsgált időszak végén a társalgóban tartózkodtak! 
 
+<details> 
 <summary>
 Megoldás 
 </summary>
-
 
 ```python
 f(4)
@@ -130,8 +130,9 @@ print('A végén a társalgóban voltak: ' + ' '.join(bent))
 <hr/>
 </details>
 
-5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent!
 
+<details> 
 <summary>
 Megoldás 
 </summary>
@@ -153,8 +154,10 @@ print('Például %s-kor voltak a legtöbben a társalgóban.' % ido)
 <hr/>
 </details>
 
-5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+6. Kérje be a felhasználótól egy személy azonosítóját! A további feladatok megoldásánál ezt használja fel!
+Feltételezheti, hogy a megadott azonosítóhoz tartozik adat a forrásfájlban. 
 
+<details> 
 <summary>
 Megoldás 
 </summary>
@@ -164,29 +167,67 @@ Megoldás
 f(6)
 ember = int(input('Adja meg a személy azonosítóját! '))
 ```
-(elég idétlen feladat)
 
 <hr/>
 </details>
 
-5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+7. Írja a képernyőre, hogy a beolvasott azonosítóhoz tartozó személy mettől meddig tartózkodott a társalgóban!<br>
+A kiírást az alábbi, 22-es személyhez tartozó példának megfelelően alakítsa ki! <br>
 
+```
+11:22-11:27
+13:45-13:47
+13:53-13:58
+14:17-14:20
+14:57- 
+```
+
+<details> 
 <summary>
 Megoldás 
 </summary>
 
 
 ```python
-f(5)
-max = 0
-ido = ''
-akt = 0
+f(7)
+percek = 0
 for adat in ajto:
-    akt += (1 if adat[3] == 'be' else -1)
-    if akt > max:
-        max = akt
-        ido = '%d:%d' %(adat[0], adat[1])
-print('Például %s-kor voltak a legtöbben a társalgóban.' % ido)
+    if adat[2] == ember:
+        if adat[3] == 'be':
+            bentvan = True
+            ido = '%d:%d-' %(adat[0], adat[1])
+            kezdet = perc(adat)
+        else:
+            bentvan = False
+            ido += '%d:%d' %(adat[0], adat[1])
+            print(ido)
+            percek += perc(adat) - kezdet
+if bentvan:
+    print(ido)
+    percek += vege - kezdet
+```
+
+<hr/>
+</details>
+
+8. Határozza meg, hogy a megfigyelt időszakban a beolvasott azonosítójú személy összesen hány percet töltött a társalgóban! Az előző feladatban példaként szereplő 22-es személy 5 alkalommal járt bent, a megfigyelés végén még bent volt. Róla azt tudjuk, hogy 18 percet töltött bent a megfigyelés végéig. A 39-es személy 6 alkalommal járt bent, a vizsgált időszak végén nem tartózkodott a helyiségben. Róla azt tudjuk, hogy 39 percet töltött ott. Írja ki, hogy a beolvasott azonosítójú személy mennyi időt volt a társalgóban, és a megfigyelési időszak végén bent volt-e még! 
+
+<details> 
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+def perc(adat):
+    return 60 * adat[0] + adat[1]
+vege = 15 * 60
+```
+```python
+f(8)
+holvan = 'a társalgóban volt' if bentvan else 'nem volt a társalgóban'
+s = 'A(z) %d. személy összesen %d percet volt bent, a megfigyelés végén %s.'
+print(s % (ember, percek, holvan))
 ```
 
 <hr/>
