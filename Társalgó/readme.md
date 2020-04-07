@@ -69,3 +69,125 @@ print('%d sor beolvasva.' % len(ajto))
 </details>
 
 2. Írja a képernyőre annak a személynek az azonosítóját, aki a vizsgált időszakon belül először lépett be az ajtón, és azét, aki utoljára távozott a megfigyelési időszakban!
+
+<details> 
+<summary>
+Megoldás 
+</summary>
+
+```python
+f(2)
+print('Az első belépő: %d' % ajto[0][2])
+i = len(ajto) - 1
+while i >= 0 and ajto[i][3] != 'ki':
+    i -= 1
+if i >= 0:
+    print('Az utolsó kilépő: %d' % ajto[i][2])
+```
+
+<hr/>
+</details>
+
+3. Határozza meg a fájlban szereplő személyek közül, ki hányszor haladt át a társalgó ajtaján! A meghatározott értékeket azonosító szerint növekvő sorrendben írja az athaladas.txt fájlba! Soronként egy személy azonosítója, és tőle egy szóközzel elválasztva az áthaladások száma szerepeljen! 
+
+<details> 
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+azonositok = set()
+for adat in ajto:
+    azonositok.add(adat[2])
+lista = sorted(list(azonositok))
+athaladasok = [a[2] for a in ajto]
+with open('athaladas.txt', 'w') as ath:
+    for tag in lista:
+        ath.write('%d %d\n' % (tag, athaladasok.count(tag)))
+```
+
+<hr/>
+</details>
+
+4. Írja a képernyőre azon személyek azonosítóját, akik a vizsgált időszak végén a társalgóban tartózkodtak! 
+
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+f(4)
+bent = []
+for tag in lista:
+    athaladasok = [a[3] for a in ajto if a[2] == tag]
+    if athaladasok[-1] == 'be':
+        bent.append(str(tag))
+print('A végén a társalgóban voltak: ' + ' '.join(bent))
+```
+
+<hr/>
+</details>
+
+5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+f(5)
+max = 0
+ido = ''
+akt = 0
+for adat in ajto:
+    akt += (1 if adat[3] == 'be' else -1)
+    if akt > max:
+        max = akt
+        ido = '%d:%d' %(adat[0], adat[1])
+print('Például %s-kor voltak a legtöbben a társalgóban.' % ido)
+```
+
+<hr/>
+</details>
+
+5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+f(6)
+ember = int(input('Adja meg a személy azonosítóját! '))
+```
+(elég idétlen feladat)
+
+<hr/>
+</details>
+
+5. Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent! 
+
+<summary>
+Megoldás 
+</summary>
+
+
+```python
+f(5)
+max = 0
+ido = ''
+akt = 0
+for adat in ajto:
+    akt += (1 if adat[3] == 'be' else -1)
+    if akt > max:
+        max = akt
+        ido = '%d:%d' %(adat[0], adat[1])
+print('Például %s-kor voltak a legtöbben a társalgóban.' % ido)
+```
+
+<hr/>
+</details>
