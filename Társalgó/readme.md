@@ -84,7 +84,6 @@ while i >= 0 and ajto[i][3] != 'ki':
 if i >= 0:
     print('Az utolsó kilépő: %d' % ajto[i][2])
 ```
-
 <hr/>
 </details>
 
