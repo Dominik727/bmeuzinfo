@@ -231,3 +231,28 @@ print(s % (ember, percek, holvan))
 
 <hr/>
 </details>
+
+## Minta a szöveges kimenetek kialakításához:
+
+
+```
+2. feladat
+Az első belépő: 2
+Az utolsó kilépő: 6
+4. feladat
+A végén a társalgóban voltak: 1 11 22 24 29 30 35 37
+5. feladat
+Például 10:44-kor voltak a legtöbben a társalgóban.
+6. feladat
+Adja meg a személy azonosítóját! 22
+7. feladat
+11:22-11:27
+13:45-13:47
+13:53-13:58
+14:17-14:20
+14:57-
+8. feladat
+A(z) 22. személy összesen 18 percet volt bent, a megfigyelés
+végén a társalgóban volt. 
+```
+
