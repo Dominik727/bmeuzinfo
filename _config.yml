@@ -1,4 +1,6 @@
 theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links
 show_downloads: true
 relative_links:
   enabled: true
