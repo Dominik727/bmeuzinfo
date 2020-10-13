@@ -1,0 +1,1 @@
+# Gyorstalpaló Python nyelvből
